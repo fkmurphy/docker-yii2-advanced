@@ -1,0 +1,42 @@
+version: '2'
+services:
+
+  php:
+    container_name: php      
+    build:
+      dockerfile: Dockerfile-${DOCKERFILE_FLAVOUR}
+      context: 'php'
+      args:
+        - PHP_BASE_IMAGE_VERSION=${PHP_BASE_IMAGE_VERSION}
+    image: ${PHP_IMAGE_NAME}:${PHP_BASE_IMAGE_VERSION}${PHP_IMAGE_VERSION_SUFFIX}
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
+      - PHP_ENABLE_XDEBUG
+      - TEST_RUNTIME_PATH=/tmp/runtime
+    volumes:
+      #- ./tests:/tests:delegated
+      # Framework testing
+      #- ./_host-volumes/yii2:/yii2:delegated
+      # Application testing
+      - ./_host-volumes/app:/app:delegated
+      # Composer cache
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+  db:
+    container_name: mysql_yii
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: curza
+      MYSQL_DATABASE: curza
+      MYSQL_USER: curza
+      MYSQL_PASSWORD: curza
+    ports:
+      - 3306
+    volumes:
+      - ./mysql_data:/var/lib/mysql   
+      - ./my.cnf:/etc/mysql/my.cnf
+

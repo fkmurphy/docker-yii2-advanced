@@ -1,0 +1,7 @@
+version: '2'
+services:
+
+  php:
+    ports:
+      - '8000:80'
+      - '8001:81'  
