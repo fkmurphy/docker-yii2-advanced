@@ -12,7 +12,7 @@ Nombre de contenedor por defecto: php
 # docker exec -ti php bash 
 
 Dentro del contenedor:
--> composer create-project yiisoft/yii2-app-advance /app
+-> composer create-project yiisoft/yii2-app-advanced /app
 -> cd /app
 -> php init (configurar yii)
 
