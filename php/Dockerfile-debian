@@ -82,7 +82,10 @@ ENV PHP_USER_ID=33 \
     PATH=/app:/app/vendor/bin:/root/.composer/vendor/bin:$PATH \
     TERM=linux \
     VERSION_PRESTISSIMO_PLUGIN=^0.3.7 \
-    COMPOSER_ALLOW_SUPERUSER=1
+    COMPOSER_ALLOW_SUPERUSER=1 \
+    CONNECT_DB=${CONNECT_DB} \
+    DB_USER=${DB_USER} \
+    DB_PASSWORD=${DB_PASSWORD} 
 
 # Add configuration files
 COPY image-files/ /
