@@ -16,14 +16,12 @@ services:
       - GITHUB_API_TOKEN=${GITHUB_API_TOKEN}
       - PHP_ENABLE_XDEBUG
       - TEST_RUNTIME_PATH=/tmp/runtime
+        ##Variables de entorno para conexión a mysql
       - CONNECT_DB=${CONNECT_DB}
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
     volumes:
-      #- ./tests:/tests:delegated
-      # Framework testing
-      #- ./_host-volumes/yii2:/yii2:delegated
-      # Application testing
+      # App
       - ./_host-volumes/app:/app:delegated
       # Composer cache
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -32,6 +30,7 @@ services:
     image: mysql:5.7
     command: --default-authentication-plugin=mysql_native_password
     restart: always
+    #Configuración de la db
     environment:
       MYSQL_ROOT_PASSWORD: curza
       MYSQL_DATABASE: curza
