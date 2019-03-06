@@ -64,12 +64,14 @@ docker-compose build
 El repo de la imagen recomienda crear un .htaccess en la carpeta web (front y back)
 Es el siguiente:
 
+```
 RewriteEngine on
-# If a directory or a file exists, use it directly
+\# If a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-# Otherwise forward it to index.php
+\# Otherwise forward it to index.php
 RewriteRule . index.php
+```
 
 ```
 7.2-apache, 7.1-apache, 7.0-apache, 5.6-apache
