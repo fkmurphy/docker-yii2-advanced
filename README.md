@@ -36,11 +36,13 @@ Levantar el contenedor en modo daemon
 Ingresar al docker para instalar un aplicación yii. 
 (Luego se guarda en _host-volumes/app por defecto)
 Nombre de contenedor por defecto: php
+
 ```
  docker exec -ti php bash 
 ```
 
 Dentro del contenedor:
+
 ```
 -> composer create-project yiisoft/yii2-app-advanced /app
 -> cd /app
@@ -53,23 +55,28 @@ Backend: 8001
 
 ```
 Configuración de apache:
+
 en la carpeta del proyecto docker php/image-files/etc/apache2/
+
 Para definir puertos archivo : ports.conf
+
 Para definir configuraciones de apache: apache2.conf
+
 Para definir VH: sites-available
 
 Cada vez que se modifique un archivo relacionado a la imagen:
+
+```
 docker-compose build
 
+```
 El repo de la imagen recomienda crear un .htaccess en la carpeta web (front y back)
 Es el siguiente:
 
 ```
 RewriteEngine on
-\# If a directory or a file exists, use it directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-\# Otherwise forward it to index.php
 RewriteRule . index.php
 ```
 
