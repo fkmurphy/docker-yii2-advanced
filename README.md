@@ -7,8 +7,6 @@
 </p>
 
 
-This is the repo of the official [Yii 2.0 Framework](http://www.yiiframework.com/) image on 
-
 Este repositorio es un clonado del oficial. Puede encontrarlo en: [DockerHub](https://hub.docker.com/r/yiisoftware/yii2-php/). 
 ## Información
 
@@ -27,19 +25,19 @@ Clonar el repositorio de git y modificar el archivo "punto.env" a gusto. Renombr
 
 Construir la imagen
 ```
-# docker-compose build
+ docker-compose build
 ```
 
 Levantar el contenedor en modo daemon
 ```
-docker-compose up -d
+ docker-compose up -d
 ```
 
 Ingresar al docker para instalar un aplicación yii. 
 (Luego se guarda en _host-volumes/app por defecto)
 Nombre de contenedor por defecto: php
 ```
-# docker exec -ti php bash 
+ docker exec -ti php bash 
 ```
 
 Dentro del contenedor:
