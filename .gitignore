@@ -1,4 +1,5 @@
 .env
 mysql_data
+base.sql
 api-curza-wp.php
 _host-volumes/*
