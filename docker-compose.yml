@@ -2,7 +2,7 @@ version: '2'
 services:
 
   php:
-    container_name: php      
+    container_name: php
     build:
       dockerfile: Dockerfile-${DOCKERFILE_FLAVOUR}
       context: 'php'
@@ -26,16 +26,16 @@ services:
       # Composer cache
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
   db:
-    container_name: mysql_yii
+    container_name: mysql
     image: mysql:5.7
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     #Configuración de la db
     environment:
-      MYSQL_ROOT_PASSWORD: curza
-      MYSQL_DATABASE: curza
-      MYSQL_USER: curza
-      MYSQL_PASSWORD: curza
+      MYSQL_ROOT_PASSWORD: prueba
+      MYSQL_DATABASE: prueba
+      MYSQL_USER: prueba
+      MYSQL_PASSWORD: prueba
     ports:
       - 3306
     volumes:
